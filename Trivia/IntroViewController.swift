@@ -18,7 +18,9 @@ class IntroViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        nameTextField.text = ""
         updateStartButtonState()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     

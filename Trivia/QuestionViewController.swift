@@ -76,10 +76,12 @@ class QuestionViewController: UIViewController {
             scoreLabel.text = name + ", your score is: " + String(totalPoints)
             print("right answer")
             answerTextField.text = ""
+            updateAnswer()
         } else if questionIndex <= amountQuestions {
             fetchQuestion()
             print("wrong answer")
             answerTextField.text = ""
+            updateAnswer()
         } else {
             print(name)
             score = Score(player: name, points: totalPoints)
