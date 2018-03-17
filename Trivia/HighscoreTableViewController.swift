@@ -12,6 +12,7 @@ import FirebaseDatabase
 class HighscoreTableViewController: UITableViewController {
 
     var highscores = [Score]()
+    var highscoresList = [Score]()
     
     var refHighscore: DatabaseReference!
     
@@ -42,12 +43,10 @@ class HighscoreTableViewController: UITableViewController {
                     self.highscores.append(highscore)
                 }
                 
-                //                print(self.highscores)
                 //reloading the tableview
-//                self.tableViewArtists.reloadData()
+                self.tableView.reloadData()
             }
         })
-        print(highscores)
     }
     
 
@@ -57,7 +56,6 @@ class HighscoreTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(highscores.count)
         return highscores.count
     }
     

@@ -272,7 +272,11 @@
                                 <segue destination="ftY-nQ-tot" kind="unwind" unwindAction="unwindToIntroWithSegue:" id="WqT-pl-ZzS"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Highscores" id="GFG-rQ-9TD"/>
+                        <barButtonItem key="rightBarButtonItem" title="Highscores" id="GFG-rQ-9TD">
+                            <connections>
+                                <segue destination="QE2-5S-ftU" kind="show" id="Ds4-5b-hHK"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="scoreLabel" destination="2BA-pI-NRb" id="8QZ-qp-4DN"/>
@@ -284,4 +288,7 @@
             <point key="canvasLocation" x="2345" y="117"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ds4-5b-hHK"/>
+    </inferredMetricsTieBreakers>
 </document>
