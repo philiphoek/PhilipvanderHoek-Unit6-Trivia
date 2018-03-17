@@ -7,89 +7,70 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class HighscoreTableViewController: UITableViewController {
 
+    var highscores = [Score]()
+    
+    var refHighscore: DatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        refHighscore = Database.database().reference().child("trivia-6dbe5")
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        refHighscore.observe(DataEventType.value, with: { (snapshot) in
+            
+            //if the reference have some values
+            if snapshot.childrenCount > 0 {
+                
+                //clearing the list
+                self.highscores.removeAll()
+                
+                //iterating through all the values
+                for player in snapshot.children.allObjects as! [DataSnapshot] {
+                    //getting values
+                    let playerObject = player.value as? [String: AnyObject]
+                    let playerName  = playerObject?["playerName"]
+                    let playerScore  = playerObject?["playerScore"]
+                    
+                    //creating artist object with model and fetched values
+                    let highscore = Score(player: (playerName as! String?)!, points: (playerScore as! Int?)!)
+                    
+                    //appending it to list
+                    self.highscores.append(highscore)
+                }
+                
+                //                print(self.highscores)
+                //reloading the tableview
+//                self.tableViewArtists.reloadData()
+            }
+        })
+        print(highscores)
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        print(highscores.count)
+        return highscores.count
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "highscoreIdentifier", for: indexPath)
+        configure(cell: cell, forItemAt: indexPath)
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    func configure(cell: UITableViewCell, forItemAt indexPath: IndexPath) {
+        let highscore = highscores[indexPath.row]
+        cell.textLabel?.text = highscore.player
+        cell.detailTextLabel?.text = String(highscore.points)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -39,3 +39,7 @@ struct Score: Codable {
     var points: Int
 }
 
+struct Highscores: Codable {
+    let highscores: [Score]
+}
+
