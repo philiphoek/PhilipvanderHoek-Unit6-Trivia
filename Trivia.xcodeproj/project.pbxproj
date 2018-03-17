@@ -17,6 +17,7 @@
 		597FCEEC2059161400FFD62B /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597FCEEB2059161400FFD62B /* QuestionData.swift */; };
 		597FCEEE2059176B00FFD62B /* QuestionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597FCEED2059176B00FFD62B /* QuestionController.swift */; };
 		597FCEF020591F9400FFD62B /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597FCEEF20591F9400FFD62B /* QuestionViewController.swift */; };
+		598AEA4D205D603500348873 /* HighscoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598AEA4C205D603500348873 /* HighscoreTableViewController.swift */; };
 		59A2487D205AC1F90076D535 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A2487C205AC1F90076D535 /* ResultViewController.swift */; };
 		59A24885205C132C0076D535 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 59A24884205C132C0076D535 /* GoogleService-Info.plist */; };
 		5F1B130F3A2A8DE5DA858878 /* Pods_Trivia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DA9DC4973CE9C11DA58D3D /* Pods_Trivia.framework */; };
@@ -64,6 +65,7 @@
 		597FCEEB2059161400FFD62B /* QuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
 		597FCEED2059176B00FFD62B /* QuestionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionController.swift; sourceTree = "<group>"; };
 		597FCEEF20591F9400FFD62B /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		598AEA4C205D603500348873 /* HighscoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighscoreTableViewController.swift; sourceTree = "<group>"; };
 		59A2487C205AC1F90076D535 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		59A24884205C132C0076D535 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		73EFF80FE0AF6CDC8D3FF85C /* Pods_TriviaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TriviaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +141,7 @@
 				597FCEBF2059158900FFD62B /* IntroViewController.swift */,
 				597FCEEF20591F9400FFD62B /* QuestionViewController.swift */,
 				59A2487C205AC1F90076D535 /* ResultViewController.swift */,
+				598AEA4C205D603500348873 /* HighscoreTableViewController.swift */,
 				597FCEC42059158A00FFD62B /* Assets.xcassets */,
 				597FCEC62059158A00FFD62B /* LaunchScreen.storyboard */,
 				597FCEEB2059161400FFD62B /* QuestionData.swift */,
@@ -484,6 +487,7 @@
 				597FCEBE2059158900FFD62B /* AppDelegate.swift in Sources */,
 				597FCEEE2059176B00FFD62B /* QuestionController.swift in Sources */,
 				59A2487D205AC1F90076D535 /* ResultViewController.swift in Sources */,
+				598AEA4D205D603500348873 /* HighscoreTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
