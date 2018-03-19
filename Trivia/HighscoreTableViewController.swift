@@ -23,27 +23,26 @@ class HighscoreTableViewController: UITableViewController {
 
         refHighscore.observe(DataEventType.value, with: { (snapshot) in
             
-            //if the reference have some values
+            // If the reference have some values
             if snapshot.childrenCount > 0 {
                 
-                //clearing the list
+                // Clearing the list
                 self.highscores.removeAll()
                 
-                //iterating through all the values
+                // Iterating through all the values
                 for player in snapshot.children.allObjects as! [DataSnapshot] {
-                    //getting values
+                    // Getting values
                     let playerObject = player.value as? [String: AnyObject]
                     let playerName  = playerObject?["playerName"]
                     let playerScore  = playerObject?["playerScore"]
                     
-                    //creating artist object with model and fetched values
+                    //Creating player object with model and fetched values
                     let highscore = Score(player: (playerName as! String?)!, points: (playerScore as! Int?)!)
                     
-                    //appending it to list
+                    // Appending it to list
                     self.highscores.append(highscore)
                 }
                 
-                //reloading the tableview
                 self.tableView.reloadData()
             }
         })

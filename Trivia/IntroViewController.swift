@@ -25,11 +25,13 @@ class IntroViewController: UIViewController {
     }
     
     func updateStartButtonState() {
+        // User has to give up a name
         let name = nameTextField.text!
         startGameButton.isEnabled = !name.isEmpty
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Send name along to next view
         if segue.identifier == "gameStarted" {
             let name = nameTextField.text!
             let navigationController = segue.destination as!

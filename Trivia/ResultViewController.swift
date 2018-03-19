@@ -28,6 +28,7 @@ class ResultViewController: UIViewController {
     }
     
     func addPlayer() {
+        // Save players score to database
         let key = refPlayer.childByAutoId().key
         
         let highscore = ["id": key, "playerName": score.player, "playerScore": score.points] as [String : Any]
@@ -37,7 +38,6 @@ class ResultViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 }

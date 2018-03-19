@@ -40,11 +40,11 @@ class QuestionViewController: UIViewController {
     }
     
     func fetchQuestion() {
-        // initiate progress bar
+        // Initiate progress bar
         let totalProgress = Float(questionIndex) / Float(amountQuestions)
         progressView.setProgress(totalProgress, animated: true)
         
-        // fetch random question
+        // Fetch random question
         questionController.fetchQuestionItems { (questions) in
             if let questions = questions {
                 self.updateUI(with: questions)
@@ -53,7 +53,7 @@ class QuestionViewController: UIViewController {
     }
     
     func updateUI(with questions: [QuestionItem]) {
-        // update UI with new question
+        // Update UI with new question
         DispatchQueue.main.async {
             self.questionLabel.text = questions[0].question
             self.answer = questions[0].answer
@@ -62,12 +62,14 @@ class QuestionViewController: UIViewController {
     }
     
     func updateAnswer() {
+        // User has to type in some kind of answer
         let submittedAnswer = answerTextField.text!
         submitButton.isEnabled = !submittedAnswer.isEmpty
     }
     
     @IBAction func submitAnswerButtonTapped(_ sender: UIButton) {
-        //fetch next question when answer is submitted
+        // Fetch next question when answer is submitted
+        // Check if answer was correct
         questionIndex += 1
         let submittedAnswer = answerTextField.text!
         if questionIndex <= amountQuestions && answer == submittedAnswer {
@@ -101,6 +103,7 @@ class QuestionViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender:
         Any?) {
+        // Send score along to next view
         if segue.identifier == "resultSegue" {
             let resultViewController = segue.destination as!
             ResultViewController
